@@ -10,9 +10,17 @@ public class Weather {
 
   private String temp2;
 
-  private String weatherDesp;
-
   private String ptime;
+
+  private String weather;
+
+  public String getWeather() {
+    return weather;
+  }
+
+  public void setWeather(String weather) {
+    this.weather = weather;
+  }
 
   public String getCity() {
     return city;
@@ -44,14 +52,6 @@ public class Weather {
 
   public void setTemp2(String temp2) {
     this.temp2 = temp2;
-  }
-
-  public String getWeatherDesp() {
-    return weatherDesp;
-  }
-
-  public void setWeatherDesp(String weatherDesp) {
-    this.weatherDesp = weatherDesp;
   }
 
   public String getPtime() {

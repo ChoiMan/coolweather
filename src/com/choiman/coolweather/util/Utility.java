@@ -97,7 +97,7 @@ public class Utility {
       JSONObject jsonObject = new JSONObject(response);
       Weather weather = gson.fromJson(jsonObject.getJSONObject("weatherinfo").toString(), Weather.class);
       saveWeatherInfo(context, weather.getCity(), weather.getCityid(), weather.getTemp1(),
-          weather.getTemp2(), weather.getWeatherDesp(), weather.getPtime());
+          weather.getTemp2(), weather.getWeather(), weather.getPtime());
     } catch (JsonSyntaxException e) {
       // TODO Auto-generated catch block
       e.printStackTrace();
@@ -123,5 +123,6 @@ public class Utility {
     editor.putString("weather_desp", weatherDesp);
     editor.putString("publish_time", publishTime);
     editor.putString("current_date", simpleDateFormat.format(new Date()));
+    editor.commit();
   }
 }

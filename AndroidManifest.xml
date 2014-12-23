@@ -30,6 +30,14 @@
       android:name="com.choiman.coolweather.activity.WeatherActivity"
       android:label="@string/app_name" >
     </activity>
+
+    <service 
+      android:name="com.choiman.coolweather.service.AutoUpdateServer">
+    </service>
+
+    <receiver
+      android:name="com.choiman.coolweather.receiver.AutoUpdateReceiver">
+    </receiver>
   </application>
 
 </manifest>

@@ -48,6 +48,8 @@ public class ChooseAreaActivity extends Activity{
 
   private List<String> dataList = new ArrayList<String>();
 
+  private boolean isFromWeatherActivity;
+
   /**
    * 省列表
    */
@@ -85,6 +87,10 @@ public class ChooseAreaActivity extends Activity{
     } else if (currentLevel == LEVEL_COUNTY) {
       queryCities();
     } else {
+      if (isFromWeatherActivity) {
+        Intent intent = new Intent(this, WeatherActivity.class);
+        startActivity(intent);
+      }
       finish();
     }
   }
@@ -93,7 +99,9 @@ public class ChooseAreaActivity extends Activity{
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-    if (prefs.getBoolean("city_selected", false)) {
+    isFromWeatherActivity = getIntent().getBooleanExtra("from_weather_activity", false);
+    
+    if (prefs.getBoolean("city_selected", false) && !isFromWeatherActivity) {
       Intent intent = new Intent(this, WeatherActivity.class);
       startActivity(intent);
       finish();
